@@ -1,28 +1,33 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import TextAnalysis from './components/TextAnalysis';
+import AudioAnalysis from './components/AudioAnalysis';
+import VisualAnalysis from './components/VisualAnalysis';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-black text-white">
+      <Hero />
 
-export default App
+      <main className="relative z-10">
+        <section id="modules" className="max-w-6xl mx-auto px-4 md:px-8 py-16 space-y-16">
+          <header className="space-y-2">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Multimodal Emotion Recognition</h2>
+            <p className="text-zinc-300">Analyze emotions across text, audio, image, and video inputs for richer, more context-aware insights.</p>
+          </header>
+
+          <TextAnalysis />
+          <AudioAnalysis />
+          <VisualAnalysis />
+        </section>
+      </main>
+
+      <footer className="border-t border-white/10 py-8 mt-10">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 text-sm text-zinc-400 flex items-center justify-between">
+          <span>© {new Date().getFullYear()} Multimodal Emotion AI</span>
+          <span>Built with React, Vite, Tailwind</span>
+        </div>
+      </footer>
+    </div>
+  );
+}
